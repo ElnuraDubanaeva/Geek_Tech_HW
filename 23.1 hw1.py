@@ -47,6 +47,6 @@ def create_student():
         return f'\nStudent:{student.introduce_myself()} \nGPA {student.gpa_student()} points,\nmarks:{student.mark}'
 
 
-create_student()
+print(create_student())
 teacher = Teacher('Aleksey', 40, 'married', 5)
 print(teacher.info_teacher())
