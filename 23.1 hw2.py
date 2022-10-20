@@ -1,8 +1,8 @@
 class Figure:
     unit = 'cm'
 
-    def __init__(self, __perimeter=0):
-        self.__perimeter = __perimeter
+    def __init__(self, __perimeter):
+        self.__perimeter = 0
 
     def get__perimetr(self):
         return self.__perimeter
