@@ -22,7 +22,7 @@ class Figure:
 
 class Square(Figure):
     def __init__(self, __sideLength, __perimeter=0):
-        super().__init__(__perimeter)
+        super().__init__()
         self.__sideLength = __sideLength
 
     def calculate_area(self):
@@ -40,7 +40,7 @@ class Square(Figure):
 
 class Rectangle(Figure):
     def __init__(self, __length, __width, __perimeter=0):
-        super().__init__(__perimeter)
+        super().__init__()
         self.__length = __length
         self.__width = __width
 
