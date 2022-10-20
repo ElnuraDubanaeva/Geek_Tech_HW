@@ -44,7 +44,7 @@ def create_student():
                        {'math': 3, 'biology': 5, 'English': 3, 'chemistry': 4})
     students = [student1, student2, student3]
     for student in students:
-        print(f'\nStudent:{student.introduce_myself()} \nGPA {student.gpa_student()} points,\nmarks:{student.mark}')
+        return f'\nStudent:{student.introduce_myself()} \nGPA {student.gpa_student()} points,\nmarks:{student.mark}'
 
 
 create_student()
