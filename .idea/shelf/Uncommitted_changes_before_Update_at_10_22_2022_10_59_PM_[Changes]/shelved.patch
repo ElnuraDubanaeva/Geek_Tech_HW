@@ -1,0 +1,124 @@
+Index: 23.1 hw1.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/23.1 hw1.py b/23.1 hw1.py
+--- a/23.1 hw1.py	
++++ b/23.1 hw1.py	
+@@ -1,52 +1,74 @@
+-class Person:
+-    def __init__(self, fullname, age, is_married):
+-        self.fullname = fullname
+-        self.age = age
+-        self.is_married = is_married
++class Figure:
++    unit = 'cm'
++
++    def __init__(self):
++        self.__perimeter = 0
++
++    def get__perimetr(self):
++        return self.__perimeter
++
++    def set__perimetr(self, perimeter):
++        self.__perimeter = perimeter
++
++    def calculate_area(self):
++        pass
++
++    def calculate_perimeter(self):
++        pass
++
++    def info(self):
++        pass
++
+ 
+-    def introduce_myself(self):
+-        return f'My name is {self.fullname} \nI am {self.age} years old \nI am {self.is_married}'
++class Square(Figure):
++    def __init__(self, __sideLength, __perimeter=0):
++        super().__init__()
++        self.__sideLength = __sideLength
+ 
++    def calculate_area(self):
++        return (self.__sideLength ** 2)
+ 
+-class Student(Person):
+-    def __init__(self, fullname, age, is_married, mark):
+-        super().__init__(fullname, age, is_married)
+-        self.mark = mark
++    def calculate_perimeter(self):
++        return (4 * self.__sideLength)
+ 
+-    def gpa_student(self):
+-        col = self.mark.values()
+-        len1 = len(self.mark)
+-        gpa = sum(col) / len1
+-        return gpa
++    def info(self):
++        return (f'Figure: Square'
++                f' Side length: {self.__sideLength}{Figure.unit}'
++                f' Perimeter: {self.calculate_perimeter()}{Figure.unit}'
++                f' Area: {self.calculate_area()}{Figure.unit}')
+ 
+ 
+-class Teacher(Person):
+-    salary = 10000
++class Rectangle(Figure):
++    def __init__(self, __length, __width, __perimeter=0):
++        super().__init__()
++        self.__length = __length
++        self.__width = __width
+ 
+-    def __init__(self, fullname, age, is_married, experience):
+-        super().__init__(fullname, age, is_married)
+-        self.experience = experience
++    def calculate_area(self):
++        return (self.__width * self.__length)
+ 
+-    def get_salary(self):
+-        if self.experience > 3:
+-            Teacher.salary += ((Teacher.salary * 5) / 100) * self.experience
+-            return Teacher.salary
+-    def info_teacher(self):
+-        return f'Teacher:{self.introduce_myself()}\nsalary:{self.get_salary()}\nexperience: {self.experience}'
++    def calculate_perimeter(self):
++        perimeter = 2 * (self.__width + self.__length)
++        self.__perimeter = perimeter
++        return self.__perimeter
+ 
++    def info(self):
++        return (f'Figure: Rectangle'
++                f' Length: {self.__length}{Figure.unit}'
++                f' Width: {self.__width}'
++                f' Perimeter: {self.calculate_perimeter()}{Figure.unit}'
++                f' Area: {self.calculate_area()}{Figure.unit}')
+ 
+-def create_student():
+-    student1 = Student('Elnura Dubanaeva', 18, 'not married',
+-                       {'math': 5, 'biology': 4, 'English': 4, 'chemistry': 3})
+-    student2 = Student('Shaibekova Nagima', 18, 'not married',
+-                       {'math': 4, 'biology': 4, 'English': 3, 'chemistry': 3})
+-    student3 = Student('Magarova Alfiya', 19, 'not married',
+-                       {'math': 3, 'biology': 5, 'English': 3, 'chemistry': 4})
+-    students = [student1, student2, student3]
+-    for student in students:
+-        print(f'\nStudent:{student.introduce_myself()} \nGPA {student.gpa_student()} points,\nmarks:{student.mark}')
+ 
++def figure():
++    square1 = Square(5)
++    square2 = Square(3)
++    rectangle1 = Rectangle(2, 3)
++    rectangle2 = Rectangle(3, 4)
++    rectangle3 = Rectangle(4, 5)
++    figures = [square1, square2, rectangle1, rectangle2, rectangle3]
++    for elem in figures:
++        print(f'{elem.info()}')
+ 
+-create_student()
+-teacher = Teacher('Aleksey', 40, 'married', 5)
+-print(teacher.info_teacher())
++
++figure()
+\ No newline at end of file
