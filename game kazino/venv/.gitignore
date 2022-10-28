@@ -3,3 +3,4 @@ Scripts
 pyvenv.cfg
 requirements.txt
 .idea
+__pycache__
